@@ -12,25 +12,25 @@ public class ReverseFirstKElementsQueueProblem {
         myQueue.printQueue();
         System.out.println();
         System.out.println("reversed: ");
-        reverseFirstK(myQueue,4).printQueue();
+        reverseFirstK(myQueue,3).printQueue();
 
 
     }
 
-    public  static MyQueue<Integer> reverseFirstK(MyQueue<Integer> queue, int k){
+    public  static MyQueue<Integer> reverseFirstK(MyQueue<Integer> queue, int k){ // 5-4-3-2-1
 
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < k; i++) {
-            stack.push(queue.dequeue());
+            stack.push(queue.dequeue()); // 1-2-3-4-5
         }
 
         while (!stack.isEmpty()){
-            queue.enqueue(stack.pop());
+            queue.enqueue(stack.pop()); //5-4-3-2-1
         }
 
         for (int i = 0; i < queue.size - k; i++) {
-            queue.enqueue(queue.dequeue());
+            queue.enqueue(queue.dequeue()); // 2-1-3-4-5
         }
         return queue;
     }
